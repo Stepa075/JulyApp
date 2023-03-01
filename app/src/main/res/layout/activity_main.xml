@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#001790C8"
+    android:backgroundTint="#BEB6B6"
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
@@ -141,10 +142,10 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cV"
+        android:id="@+id/cV2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:background="@null"
         android:backgroundTint="#8000FEDE"
         app:cardCornerRadius="10dp"
@@ -269,5 +270,161 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cV3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        android:backgroundTint="#8000FEDE"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/cV2"
+        app:layout_constraintStart_toStartOf="@+id/cV2"
+        app:layout_constraintTop_toBottomOf="@+id/cV2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/cv3et"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/corner_bg"
+                android:backgroundTint="#0BC6EA"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:duplicateParentState="false"
+                android:editable="false"
+                android:ems="10"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/amaranth"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:text="Больше, меньше или равно"
+                android:textIsSelectable="false"
+                android:textSize="24sp"
+                app:barrierMargin="2dp"
+                app:constraint_referenced_ids="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/cv3tvPrimer"
+                app:layout_constraintStart_toStartOf="@+id/cv3tvPrimer"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/cv3tvPrimer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/corner_bg"
+                android:backgroundTint="#BFB7B7"
+                android:gravity="center"
+                android:text="Здесь будет пример"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cv3et" />
+
+            <LinearLayout
+                android:id="@+id/cv3linLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/cv3tvPrimer"
+                app:layout_constraintStart_toStartOf="@+id/cv3tvPrimer"
+                app:layout_constraintTop_toBottomOf="@+id/cv3tvPrimer"
+                app:layout_constraintVertical_bias="0.19999999">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#08383E"
+                    android:text="<"
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#08383E"
+                    android:text="="
+                    android:textSize="24sp" />
+
+                <Button
+                    android:id="@+id/cv3b1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#08383E"
+                    android:text=">"
+                    android:textSize="24sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/cv3linLayout"
+                app:layout_constraintStart_toStartOf="@+id/cv3linLayout"
+                app:layout_constraintTop_toBottomOf="@+id/cv3linLayout">
+
+                <TextView
+                    android:id="@+id/cv3tvTrue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Правильно:" />
+
+                <TextView
+                    android:id="@+id/cv3tvFalse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Неправильно:" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/tvBottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/corner_bg"
+        android:backgroundTint="#0BC5E9"
+        android:gravity="center"
+        android:text="Пробуй и у тебя получится!!!"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/cV3"
+        app:layout_constraintStart_toStartOf="@+id/cV3"
+        app:layout_constraintTop_toBottomOf="@+id/cV3"
+        app:layout_constraintVertical_bias="0.24000001" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
