@@ -2,12 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#001790C8"
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -28,7 +30,7 @@
                 android:id="@+id/editTextTextPersonName2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 android:background="#0BC8EC"
                 android:clickable="false"
                 android:cursorVisible="false"
@@ -64,6 +66,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
             <LinearLayout
+                android:id="@+id/linLayout"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
@@ -72,7 +75,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tvPrimer"
                 app:layout_constraintStart_toStartOf="@+id/tvPrimer"
-                app:layout_constraintTop_toBottomOf="@+id/tvPrimer">
+                app:layout_constraintTop_toBottomOf="@+id/tvPrimer"
+                app:layout_constraintVertical_bias="0.19999999">
 
                 <EditText
                     android:id="@+id/etOtvet"
@@ -81,10 +85,10 @@
                     android:layout_marginEnd="5dp"
                     android:layout_weight="0.1"
                     android:ems="10"
-                    android:inputType="number"
-                    android:text=""
+                    android:imeOptions="actionSend"
 
-                    />
+                    android:inputType="number"
+                    android:text="" />
 
                 <Button
                     android:id="@+id/b1"
@@ -92,7 +96,169 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
+                    android:backgroundTint="#08383E"
                     android:text="Ответить" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/linLayout"
+                app:layout_constraintStart_toStartOf="@+id/linLayout"
+                app:layout_constraintTop_toBottomOf="@+id/linLayout">
+
+                <TextView
+                    android:id="@+id/tvTrue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Правильно:" />
+
+                <TextView
+                    android:id="@+id/tvFalse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Неправильно:" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@null"
+        android:backgroundTint="#00FEDE"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/cv2et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#0BC8EC"
+                android:clickable="false"
+                android:cursorVisible="false"
+                android:duplicateParentState="false"
+                android:editable="false"
+                android:ems="10"
+                android:focusableInTouchMode="false"
+                android:fontFamily="@font/amaranth"
+                android:inputType="textPersonName"
+                android:singleLine="true"
+                android:text="Умножение и деление"
+                android:textIsSelectable="false"
+                android:textSize="24sp"
+                app:barrierMargin="2dp"
+                app:constraint_referenced_ids="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/cv2tvPrimer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="#BFB7B7"
+                android:gravity="center"
+                android:text="Здесь будет пример"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cv2et" />
+
+            <LinearLayout
+                android:id="@+id/cv2linLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/cv2tvPrimer"
+                app:layout_constraintStart_toStartOf="@+id/cv2tvPrimer"
+                app:layout_constraintTop_toBottomOf="@+id/cv2tvPrimer"
+                app:layout_constraintVertical_bias="0.19999999">
+
+                <EditText
+                    android:id="@+id/cv2etOtvet"
+                    android:layout_width="171dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="0.1"
+                    android:ems="10"
+
+                    android:imeOptions="actionGo"
+                    android:inputType="number"
+                    android:text="" />
+
+                <Button
+                    android:id="@+id/cv2b1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#08383E"
+                    android:text="Ответить" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/cv2linLayout"
+                app:layout_constraintStart_toStartOf="@+id/cv2linLayout"
+                app:layout_constraintTop_toBottomOf="@+id/cv2linLayout">
+
+                <TextView
+                    android:id="@+id/cv2tvTrue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Правильно:" />
+
+                <TextView
+                    android:id="@+id/cv2tvFalse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Неправильно:" />
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
