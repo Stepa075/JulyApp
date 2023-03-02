@@ -5,8 +5,7 @@
     android:id="@+id/cLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#001790C8"
-    android:backgroundTint="#BEB6B6"
+    android:background="#FCFCFC"
     tools:context=".MainActivity">
 
     <androidx.cardview.widget.CardView
@@ -343,33 +342,33 @@
                 app:layout_constraintVertical_bias="0.19999999">
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/b3_minus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="#08383E"
-                    android:text="<"
+                    android:text="@string/b_minus"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/b3_ravno"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="#08383E"
-                    android:text="="
+                    android:text="@string/b_ravno"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/cv3b1"
+                    android:id="@+id/b3_plus"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:layout_weight="1"
                     android:backgroundTint="#08383E"
-                    android:text=">"
+                    android:text="@string/b_plus"
                     android:textSize="24sp" />
             </LinearLayout>
 
