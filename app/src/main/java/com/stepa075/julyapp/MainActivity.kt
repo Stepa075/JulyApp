@@ -7,7 +7,6 @@ import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.stepa075.julyapp.databinding.ActivityMainBinding
 import java.util.*
@@ -64,14 +63,14 @@ class MainActivity : AppCompatActivity() {
             trueOrFalse2()
         }
 
-        if(savedInstanceState == null){
+        if (savedInstanceState == null) {
             tvTrueAnswer = 0
-            tvTrueAnswer2 =0
-            tvTrueAnswer3 =0
-            tvFalseAnswer =0
-            tvFalseAnswer2 =0
-            tvFalseAnswer3 =0
-        }else{
+            tvTrueAnswer2 = 0
+            tvTrueAnswer3 = 0
+            tvFalseAnswer = 0
+            tvFalseAnswer2 = 0
+            tvFalseAnswer3 = 0
+        } else {
             tvTrueAnswer = savedInstanceState.getInt(KEY_TRUE)
             tvTrueAnswer2 = savedInstanceState.getInt(KEY_TRUE2)
             tvTrueAnswer3 = savedInstanceState.getInt(KEY_TRUE3)
@@ -97,7 +96,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @SuppressLint("SetTextI18n")
-    private fun renderState() = with(bindingClass){
+    private fun renderState() = with(bindingClass) {
         val tr = tvTrueAnswer.toString()
         bindingClass.tvTrue.text = "Правильно: $tr"
         val fa = tvFalseAnswer
@@ -323,28 +322,50 @@ class MainActivity : AppCompatActivity() {
             if (variant2 == 3) {
                 otvet2 = chislo3 + chislo4; znak2 = "+"
             }
-            if (variant != 1 && variant2 != 1 && otvet > 0 && otvet2 > 0) {
-                composePrimer3 = when {
-                    otvet > otvet2 -> ">"
-                    otvet < otvet2 -> "<"
-                    else -> "="
+            if (otvet > 0 && otvet2 > 0) {                                   // Если результат примера больше нуля
+                if(variant == 1 && chislo1 % chislo2 ==0 && variant2 != 1){ //Если первый вариант - деление, а второй - нет.
+                    composePrimer3 = when {
+                        otvet > otvet2 -> ">"
+                        otvet < otvet2 -> "<"
+                        else -> "="
+                    }
+                    bindingClass.cv3tvPrimer.text = "$chislo1$znak1$chislo2 ? $chislo3$znak2$chislo4"
+                    break
                 }
-                bindingClass.cv3tvPrimer.text = "$chislo1$znak1$chislo2 ? $chislo3$znak2$chislo4"
-
-                break
-            }
-            if ((otvet > 0 && variant == 1 && chislo1 % chislo2 == 0) ||
-                (otvet2 > 0 && variant2 == 1 && chislo1 % chislo2 == 0)
-            ) {
-                composePrimer3 = when {
-                    otvet > otvet2 -> ">"
-                    otvet < otvet2 -> "<"
-                    else -> "="
+                if(variant2 == 1 && chislo3 % chislo4 == 0){ // Если второй вариант деление...
+                    composePrimer3 = when {
+                        otvet > otvet2 -> ">"
+                        otvet < otvet2 -> "<"
+                        else -> "="
+                    }
+                    bindingClass.cv3tvPrimer.text = "$chislo1$znak1$chislo2 ? $chislo3$znak2$chislo4"
+                    break
                 }
-                bindingClass.cv3tvPrimer.text = "$chislo1$znak1$chislo2 ? $chislo3$znak2$chislo4"
+                if (( variant == 1 && chislo1 % chislo2 == 0) &&  //  ЕСли оба варианта деление
+                    (variant2 == 1 && chislo3 % chislo4 == 0)
+                ) {
+                    composePrimer3 = when {
+                        otvet > otvet2 -> ">"
+                        otvet < otvet2 -> "<"
+                        else -> "="
+                    }
+                    bindingClass.cv3tvPrimer.text = "$chislo1$znak1$chislo2 ? $chislo3$znak2$chislo4"
+                    break
+                }
+                else{
+                    composePrimer3 = when {         // Все остальные варианты
+                        otvet > otvet2 -> ">"
+                        otvet < otvet2 -> "<"
+                        else -> "="
+                    }
+                    bindingClass.cv3tvPrimer.text = "$chislo1$znak1$chislo2 ? $chislo3$znak2$chislo4"
+                    break
+                    }
+                }
 
-                break
-            }
+
+
+
 
         }
     }
@@ -380,13 +401,7 @@ class MainActivity : AppCompatActivity() {
             Thread.sleep(100)
             bindingClass.cLayout.setBackgroundColor(Color.RED)
             Thread.sleep(100)
-            bindingClass.cLayout.setBackgroundColor(Color.GRAY)
-            Thread.sleep(100)
-            bindingClass.cLayout.setBackgroundColor(Color.RED)
-            Thread.sleep(100)
             bindingClass.cLayout.setBackgroundColor(Color.WHITE)
-
-
         }.start()
     }
 
@@ -399,22 +414,22 @@ class MainActivity : AppCompatActivity() {
             Thread.sleep(100)
             bindingClass.cLayout.setBackgroundColor(Color.GREEN)
             Thread.sleep(100)
-            bindingClass.cLayout.setBackgroundColor(Color.GRAY)
-            Thread.sleep(100)
-            bindingClass.cLayout.setBackgroundColor(Color.GREEN)
-            Thread.sleep(100)
             bindingClass.cLayout.setBackgroundColor(Color.WHITE)
-
-
         }.start()
     }
 
-    companion object{
-        @JvmStatic private val KEY_TRUE = "TRUE!"
-        @JvmStatic private val KEY_TRUE2 = "TRUE2"
-        @JvmStatic private val KEY_TRUE3 = "TRUE3"
-        @JvmStatic private val KEY_FALSE = "FALSE"
-        @JvmStatic private val KEY_FALSE2 = "FALSE2"
-        @JvmStatic private val KEY_FALSE3 = "FALSE3"
+    companion object {
+        @JvmStatic
+        private val KEY_TRUE = "TRUE!"
+        @JvmStatic
+        private val KEY_TRUE2 = "TRUE2"
+        @JvmStatic
+        private val KEY_TRUE3 = "TRUE3"
+        @JvmStatic
+        private val KEY_FALSE = "FALSE"
+        @JvmStatic
+        private val KEY_FALSE2 = "FALSE2"
+        @JvmStatic
+        private val KEY_FALSE3 = "FALSE3"
     }
 }
