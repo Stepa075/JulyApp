@@ -323,7 +323,7 @@ class MainActivity : AppCompatActivity() {
                 otvet2 = chislo3 + chislo4; znak2 = "+"
             }
             if (otvet > 0 && otvet2 > 0) {                                   // Если результат примера больше нуля
-                if(variant == 1 && chislo1 % chislo2 ==0 && variant2 != 1){ //Если первый вариант - деление, а второй - нет.
+                if((variant == 1 && chislo1 % chislo2 == 0) && variant2 != 1){ //Если первый вариант - деление, а второй - нет.
                     composePrimer3 = when {
                         otvet > otvet2 -> ">"
                         otvet < otvet2 -> "<"
@@ -332,7 +332,7 @@ class MainActivity : AppCompatActivity() {
                     bindingClass.cv3tvPrimer.text = "$chislo1$znak1$chislo2 ? $chislo3$znak2$chislo4"
                     break
                 }
-                if(variant2 == 1 && chislo3 % chislo4 == 0){ // Если второй вариант деление...
+                if((variant != 1)&&(variant2 == 1 && chislo3 % chislo4 == 0)){ // Если первый не деление а второй вариант деление...
                     composePrimer3 = when {
                         otvet > otvet2 -> ">"
                         otvet < otvet2 -> "<"
@@ -352,7 +352,7 @@ class MainActivity : AppCompatActivity() {
                     bindingClass.cv3tvPrimer.text = "$chislo1$znak1$chislo2 ? $chislo3$znak2$chislo4"
                     break
                 }
-                else{
+                if(variant != 1 && variant2 != 1){
                     composePrimer3 = when {         // Все остальные варианты
                         otvet > otvet2 -> ">"
                         otvet < otvet2 -> "<"
@@ -392,30 +392,18 @@ class MainActivity : AppCompatActivity() {
 //
     }
 
-    @SuppressLint("ResourceAsColor")
+
     private fun blinkgRed() {
-        Thread {
+
             bindingClass.cLayout.setBackgroundColor(Color.RED)
-            Thread.sleep(100)
-            bindingClass.cLayout.setBackgroundColor(Color.GRAY)
-            Thread.sleep(100)
-            bindingClass.cLayout.setBackgroundColor(Color.RED)
-            Thread.sleep(100)
-            bindingClass.cLayout.setBackgroundColor(Color.WHITE)
-        }.start()
+
     }
 
-    @SuppressLint("ResourceAsColor")
+
     private fun blinkgGreen() {
-        Thread {
+
             bindingClass.cLayout.setBackgroundColor(Color.GREEN)
-            Thread.sleep(100)
-            bindingClass.cLayout.setBackgroundColor(Color.GRAY)
-            Thread.sleep(100)
-            bindingClass.cLayout.setBackgroundColor(Color.GREEN)
-            Thread.sleep(100)
-            bindingClass.cLayout.setBackgroundColor(Color.WHITE)
-        }.start()
+
     }
 
     companion object {
